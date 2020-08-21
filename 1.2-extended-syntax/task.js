@@ -1,6 +1,4 @@
-let a ;
-let b ;
-let c ;
+
 let x ;
 function getResult(a,b,c){
     let d = (b ** 2) - (4 * a * c);
@@ -15,7 +13,7 @@ function getResult(a,b,c){
     }
      return x;
 }
-let marks ;
+
 let averageMark;
 function getAverageMark(marks){
     let sum = 0;
@@ -34,8 +32,7 @@ function getAverageMark(marks){
 
     return averageMark;
 }
-let name;
-let dateOfBirthday;
+
 let result;
 function askDrink(name,dateOfBirthday){
     let todayYear = new Date().getFullYear();
