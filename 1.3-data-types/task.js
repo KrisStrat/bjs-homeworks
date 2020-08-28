@@ -1,15 +1,14 @@
 
-let percent;
-let contribution;
-let amount;
-let date;
-let sumCredit;
-let month;
-let actualDate = new Date().getFullYear();
-let monthlyAmount;
-let totalAmount;
-
 function calculateTotalMortgage(percent, contribution, amount, date) {
+  let percent;
+  let contribution;
+  let amount;
+  let date;
+  let sumCredit;
+  let month;
+  let actualDate = new Date().getFullYear();
+  let monthlyAmount;
+  let totalAmount;
     if (typeof percent == Boolean) {
       return ` Параметр \" Процент \" содержит неправильное значение ${percent}`;
     }
@@ -57,7 +56,14 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     return totalAmount;
 }
 
-//function getGreeting(name) {
-    // код для задачи №2 писать здесь
-    // return greeting;
-//}
+function getGreeting(name) {
+    let name;
+    let greeting = `Привет мир! Меня зовут ${name}.`;
+    if (name == "" || name == undefined || name == null) {
+      name = "Аноним";
+    };
+
+    return greeting;
+
+
+}
