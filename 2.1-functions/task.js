@@ -44,10 +44,10 @@ function showSolutionsMessage(a,b,c) {
   if (result.D == 0) {
     console.log("Уравнение не имеет вещественных корней");
   }
-  if else (result.roots.length == 1) {
+  else if (result.roots.length == 1) {
     console.log(` Уравнение имеет один корень. x1 = ${result.roots[0]} `);
   }
-  if else (result.roots.length > 1) {
+  else if (result.roots.length > 1) {
     console.log(` Уравнение имеет два корня. x1 = ${result.roots[0]} , x2 = ${result.roots[1]}`);
   }
 }
@@ -73,33 +73,22 @@ function getaAverageScore(data) {
   }
   let subjectAverage = {};
   for (subject in data) {
-    subjectAverage = getAverageMark(data[subject]);
+    subjectAverage[subject] = getAverageMark(data[subject]);
   }
-  let subjectAverage.average = getAverageMark(Object.values(data));
+   subjectAverage.average = getAverageMark(Object.values(subjectAverage));
   return subjectAverage;
 }
 
 // Task 3
   let decodedValue = {};
 function getPersonData(secretData) {
-  let secretData.firstname = secretData.aaa;
-  let secretData.lastname = secretData.bbb;
-  for (code in secretData) {
-    decodedValue = getDecodedValue(secretData[code]);
+  for (name in secretData) {
+    decodedValue.firstName[name] = getDecodedValue(secretData[name]);
+    decodedValue.lastName[name] = getDecodedValue(secretData[name]);
+    return decodedValue;
   }
-  return decodedValue;
 }
-
-function getDecodedValue(secret) {
-
-  for (let i = 0; i < secret.length; i++) {
-    if (secret[i] === 0) {
-      secret[i] = "Родриго";
-    }
-    else if (secret[i] === 1){
-      secret[i] = " Эмильо";
-    }
-    return secret;
-  }
-
+function getDecodedValue(secret)  {
+  let secret = secret === 1 ? "Эмильо" : "Родриго";
+  return secret;
 }
