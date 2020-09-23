@@ -82,13 +82,12 @@ function getaAverageScore(data) {
 // Task 3
   let decodedValue = {};
 function getPersonData(secretData) {
-  for (name in secretData) {
-    decodedValue.firstName[name] = getDecodedValue(secretData[name]);
-    decodedValue.lastName[name] = getDecodedValue(secretData[name]);
-    return decodedValue;
-  }
+  return {
+      firstName: getDecodedValue(secretData['aaa']),
+      lastName: getDecodedValue(secretData['bbb'])
+    }
 }
 function getDecodedValue(secret)  {
-  let secret = secret === 1 ? "Эмильо" : "Родриго";
-  return secret;
+  let keyWord = secret === 1 ? "Эмильо" : "Родриго";
+  return keyWord;
 }
