@@ -2,8 +2,7 @@
 function parseCount(items) {
   let parseNumber = Number.parseInt(items);
   if (isNaN(parseNumber)) {
-    let errorItem = New Error("Невалидное значение.")
-    throw errorItem;
+    throw new Error("Невалидное значение.");
   }
   return parseNumber;
 }
@@ -13,33 +12,20 @@ function validateCount(itemsData) {
     return parseCount(itemsData);
   }
   catch(e) {
-    return errorItem;
+    return e;
   }
 }
 
 //task 2
-let a = Number(prompt("enter the number:"));
-let b = Number(prompt("enter the number:"));
-let c = Number(prompt("enter the number:"));
-class FakeTriangle {
+class Triangle {
   constructor(a, b, c){
     this.first = a;
     this.second = b;
     this.third = c;
-  }
-  getPerimeter() {
-    return "Ошибка!Треугольник не существует!";
-  }
-  getArea() {
-    return "Ошибка!Треугольник не существует!";
-  }
-}
-class Triangle extends FakeTriangle {
-  constructor(a, b, c) {
     if (a + b <= c ||
       b + c <= a ||
       a + c <= b ) {
-      throw New Error ("Треугольник с такими сторонами не существует.");
+      throw new Error ("Треугольник с такими сторонами не существует.");
     }
   }
   getPerimeter() {
@@ -47,16 +33,33 @@ class Triangle extends FakeTriangle {
   }
 
   getArea() {
-    let p = (this.first + this.second + this.third) / 2;
+    let p = getPerimeter() / 2;
     let area = Math.sqrt(p * (p - this.first) * (p - this.second) * (p - this.third));
     return Number(area.toFixed(3));
   }
+
 }
- function getTriangle() {
+class FakeTriangle extends Triangle {
+  constructor(a, b, c) {
+    this.first = a;
+    this.second = b;
+    this.third = c;
+    }
+  getPerimeter() {
+    return "Ошибка!Треугольник не существует!";
+  }
+  getArea() {
+    return "Ошибка!Треугольник не существует!";
+  }
+}
+ function getTriangle(a,b,c) {
    try {
-     return new Triangle;
+     return new Triangle(a,b,c);
    }
    catch(e) {
-     return new FakeTriangle;
+     return new FakeTriangle(a,b,c);
      }
  }
+getTriangle(7,14,8);
+
+getTriangle(2,3,4);
